@@ -1,0 +1,101 @@
+type Movie {
+  id: ID!
+  title: String!
+  poster_path: String!
+  popularity: Float!
+  vote_average: Float!
+  overview: String!
+  release_date: String!
+  production_companies: [Company!]!
+  genres: [Genre!]!
+}
+
+type TvSeries {
+  id: ID!
+  name: String!
+  poster_path: String!
+  popularity: Float!
+  vote_count: Int!
+  overview: String!
+  first_air_date: String!
+  production_companies: [Company!]!
+  genres: [Genre!]!
+  seasons: [Seasons!]!
+}
+
+type PopularMovies {
+  id: ID!
+  title: String!
+  poster_path: String!
+  popularity: Float!
+  vote_count: Int!
+  overview: String!
+  release_date: String!
+  vote_average: Float!
+  production_companies: [Company!]!
+  genres: [Genre!]!
+}
+
+type Company {
+  id: ID!
+  logo_path: String
+  name: String!
+  origin_country: String!
+}
+
+type Genre {
+  id: ID!
+  name: String!
+}
+
+type Seasons {
+  id: ID!
+  name: String!
+  overview: String!
+  air_date: String!
+  episode_count: Int!
+  poster_path: String
+  season_number: Int!
+}
+
+type AuthorDetails {
+  name: String
+  username: String
+  avatar_path: String
+  rating: Float
+}
+
+type Reviews {
+  id: ID!
+  author_details: AuthorDetails!
+  content: String!
+  created_at: String!
+}
+
+type AddMovieRatings {
+  code: Int
+  success: Boolean!
+  message: String
+  rating: Float
+}
+
+type AddTvRatings {
+  code: Int
+  success: Boolean!
+  message: String
+  rating: Float
+}
+
+type Query {
+  movies: [Movie!]!
+  movie(id: ID!): Movie!
+  tvseries: [TvSeries!]!
+  series(id: ID!): TvSeries!
+  reviews(id: ID!): [Reviews!]!
+  popularmovies: [PopularMovies!]!
+}
+
+type Mutation {
+  addMovieRatings(id: ID!, rating: Float!): AddMovieRatings!
+  addTvRatings(id: ID!, rating: Float!): AddTvRatings!
+}
