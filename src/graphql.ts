@@ -82,6 +82,18 @@ export class Reviews {
     created_at: string;
 }
 
+export class Favourites {
+    id: string;
+    backdrop_path?: Nullable<string>;
+    genre_ids: number[];
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    vote_average: number;
+}
+
 export class AddMovieRatings {
     code?: Nullable<number>;
     success: boolean;
@@ -96,6 +108,13 @@ export class AddTvRatings {
     rating?: Nullable<number>;
 }
 
+export class AddToFavourites {
+    code?: Nullable<number>;
+    success: boolean;
+    message?: Nullable<string>;
+    favorite?: Nullable<boolean>;
+}
+
 export abstract class IQuery {
     abstract movies(): Movie[] | Promise<Movie[]>;
 
@@ -108,12 +127,16 @@ export abstract class IQuery {
     abstract reviews(id: string): Reviews[] | Promise<Reviews[]>;
 
     abstract popularmovies(): PopularMovies[] | Promise<PopularMovies[]>;
+
+    abstract favourites(id: string): Favourites[] | Promise<Favourites[]>;
 }
 
 export abstract class IMutation {
     abstract addMovieRatings(id: string, rating: number): AddMovieRatings | Promise<AddMovieRatings>;
 
     abstract addTvRatings(id: string, rating: number): AddTvRatings | Promise<AddTvRatings>;
+
+    abstract addToFavourites(id: string, favorite: boolean): AddToFavourites | Promise<AddToFavourites>;
 }
 
 type Nullable<T> = T | null;

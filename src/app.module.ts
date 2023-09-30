@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { BookmarkModule } from './bookmark/bookmark.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { FavouritesModule } from './favourites/favourites.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { PrismaModule } from './prisma/prisma.module';
     UsersModule,
     BookmarkModule,
     PrismaModule,
+    FavouritesModule,
   ],
   providers: [RatingsService, RatingsResolver],
 })

@@ -72,6 +72,18 @@ type Reviews {
   created_at: String!
 }
 
+type Favourites {
+  id: ID!
+  backdrop_path: String
+  genre_ids: [Int!]!
+  overview: String!
+  popularity: Float!
+  poster_path: String!
+  release_date: String!
+  title: String!
+  vote_average: Float!
+}
+
 type AddMovieRatings {
   code: Int
   success: Boolean!
@@ -86,6 +98,13 @@ type AddTvRatings {
   rating: Float
 }
 
+type AddToFavourites {
+  code: Int
+  success: Boolean!
+  message: String
+  favorite: Boolean
+}
+
 type Query {
   movies: [Movie!]!
   movie(id: ID!): Movie!
@@ -93,9 +112,11 @@ type Query {
   series(id: ID!): TvSeries!
   reviews(id: ID!): [Reviews!]!
   popularmovies: [PopularMovies!]!
+  favourites(id: ID!): [Favourites!]!
 }
 
 type Mutation {
   addMovieRatings(id: ID!, rating: Float!): AddMovieRatings!
   addTvRatings(id: ID!, rating: Float!): AddTvRatings!
+  addToFavourites(id: ID!, favorite: Boolean!): AddToFavourites!
 }
