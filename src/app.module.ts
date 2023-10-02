@@ -24,7 +24,7 @@ import { FavouritesModule } from './favourites/favourites.module';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      typePaths: ['./schema.graphql'],
+      typePaths: ['./src/schema.graphql'],
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
