@@ -6,19 +6,15 @@ export class FavouritesResolver {
   constructor(private favouritesService: FavouritesService) {}
 
   @Mutation()
-  async addToFavourites(
-    @Args('id') id: string,
-    @Args('favorite') favorite: boolean,
-  ) {
-    const response = await this.favouritesService.addToFavourite(id, favorite);
+  async addToFavourites(@Args('id') id: string) {
+    const response = await this.favouritesService.addToFavourite(id);
     return {
       ...response,
-      favorite: favorite,
     };
   }
 
   @Query()
-  async favourites(@Args('id') id: string) {
-    return this.favouritesService.getFavourites(id);
+  async favourites() {
+    return this.favouritesService.getFavourites();
   }
 }

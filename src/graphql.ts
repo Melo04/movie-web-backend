@@ -112,7 +112,6 @@ export class AddToFavourites {
     code?: Nullable<number>;
     success: boolean;
     message?: Nullable<string>;
-    favorite?: Nullable<boolean>;
 }
 
 export abstract class IQuery {
@@ -128,7 +127,7 @@ export abstract class IQuery {
 
     abstract popularmovies(): PopularMovies[] | Promise<PopularMovies[]>;
 
-    abstract favourites(id: string): Favourites[] | Promise<Favourites[]>;
+    abstract favourites(): Favourites[] | Promise<Favourites[]>;
 }
 
 export abstract class IMutation {
@@ -136,7 +135,7 @@ export abstract class IMutation {
 
     abstract addTvRatings(id: string, rating: number): AddTvRatings | Promise<AddTvRatings>;
 
-    abstract addToFavourites(id: string, favorite: boolean): AddToFavourites | Promise<AddToFavourites>;
+    abstract addToFavourites(id: string): AddToFavourites | Promise<AddToFavourites>;
 }
 
 type Nullable<T> = T | null;

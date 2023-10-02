@@ -102,7 +102,6 @@ type AddToFavourites {
   code: Int
   success: Boolean!
   message: String
-  favorite: Boolean
 }
 
 type Query {
@@ -112,11 +111,11 @@ type Query {
   series(id: ID!): TvSeries!
   reviews(id: ID!): [Reviews!]!
   popularmovies: [PopularMovies!]!
-  favourites(id: ID!): [Favourites!]!
+  favourites: [Favourites!]!
 }
 
 type Mutation {
   addMovieRatings(id: ID!, rating: Float!): AddMovieRatings!
   addTvRatings(id: ID!, rating: Float!): AddTvRatings!
-  addToFavourites(id: ID!, favorite: Boolean!): AddToFavourites!
+  addToFavourites(id: ID!): AddToFavourites!
 }

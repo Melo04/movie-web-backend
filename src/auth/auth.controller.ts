@@ -1,4 +1,12 @@
-import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  HttpStatus,
+  Get,
+  Req,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 import { SignInDto } from './dto/signin.dto';
@@ -16,5 +24,16 @@ export class AuthController {
   @Post('signin')
   signin(@Body() dto: SignInDto) {
     return this.authService.signin(dto);
+  }
+
+  @Get()
+  async redirectToAuth(@Req() res, @Req() req) {
+    try {
+      const requestToken = await this.authService.getRequestToken();
+      const url = `https://www.themoviedb.org/authenticate/${requestToken.request_token}`;
+      return res.redirect(url);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
