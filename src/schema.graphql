@@ -105,12 +105,12 @@ type AddToFavourites {
 }
 
 type Query {
-  movies: [Movie!]!
+  movies(page: Int): [Movie!]!
   movie(id: ID!): Movie!
-  tvseries: [TvSeries!]!
+  tvseries(page: Int): [TvSeries!]!
   series(id: ID!): TvSeries!
   reviews(id: ID!): [Reviews!]!
-  popularmovies: [PopularMovies!]!
+  popularmovies(page: Int): [PopularMovies!]!
   favourites: [Favourites!]!
 }
 

@@ -8,9 +8,9 @@ export class MoviesService extends RESTDataSource {
   }
   baseURL = `https://api.themoviedb.org/3/`;
 
-  async getMovies() {
+  async getMovies(page: number = 1) {
     const response = await this.get(
-      `trending/movie/day?api_key=${process.env.API_KEY}`,
+      `trending/movie/day?api_key=${process.env.API_KEY}&page=${page}`,
     );
     return response.results;
   }

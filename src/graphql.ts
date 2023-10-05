@@ -115,17 +115,17 @@ export class AddToFavourites {
 }
 
 export abstract class IQuery {
-    abstract movies(): Movie[] | Promise<Movie[]>;
+    abstract movies(page?: Nullable<number>): Movie[] | Promise<Movie[]>;
 
     abstract movie(id: string): Movie | Promise<Movie>;
 
-    abstract tvseries(): TvSeries[] | Promise<TvSeries[]>;
+    abstract tvseries(page?: Nullable<number>): TvSeries[] | Promise<TvSeries[]>;
 
     abstract series(id: string): TvSeries | Promise<TvSeries>;
 
     abstract reviews(id: string): Reviews[] | Promise<Reviews[]>;
 
-    abstract popularmovies(): PopularMovies[] | Promise<PopularMovies[]>;
+    abstract popularmovies(page?: Nullable<number>): PopularMovies[] | Promise<PopularMovies[]>;
 
     abstract favourites(): Favourites[] | Promise<Favourites[]>;
 }

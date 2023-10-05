@@ -6,8 +6,8 @@ export class TvseriesResolver {
   constructor(private tvseriesService: TvseriesService) {}
 
   @Query()
-  async tvseries() {
-    return this.tvseriesService.getTvseries();
+  async tvseries(@Args('page', { nullable: true }) page: number) {
+    return this.tvseriesService.getTvseries(page);
   }
 
   @Query()

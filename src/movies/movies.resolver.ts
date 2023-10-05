@@ -6,8 +6,8 @@ export class MoviesResolver {
   constructor(private moviesService: MoviesService) {}
 
   @Query()
-  async movies() {
-    return this.moviesService.getMovies();
+  async movies(@Args('page', { nullable: true }) page: number) {
+    return this.moviesService.getMovies(page);
   }
 
   @Query()
