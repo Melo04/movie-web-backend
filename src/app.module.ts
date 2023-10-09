@@ -13,9 +13,9 @@ import { RatingsResolver } from './ratings/ratings.resolver';
 import { RatingsModule } from './ratings/ratings.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { BookmarkModule } from './bookmark/bookmark.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { FavouritesModule } from './favourites/favourites.module';
+import { GenreModule } from './genre/genre.module';
 
 @Module({
   imports: [
@@ -39,9 +39,9 @@ import { FavouritesModule } from './favourites/favourites.module';
     RatingsModule,
     AuthModule,
     UsersModule,
-    BookmarkModule,
     PrismaModule,
     FavouritesModule,
+    GenreModule,
   ],
   providers: [RatingsService, RatingsResolver],
 })

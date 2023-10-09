@@ -112,6 +112,8 @@ type Query {
   reviews(id: ID!): [Reviews!]!
   popularmovies(page: Int): [PopularMovies!]!
   favourites: [Favourites!]!
+  moviegenres: [Genre!]!
+  tvgenres: [Genre!]!
 }
 
 type Mutation {

@@ -128,6 +128,10 @@ export abstract class IQuery {
     abstract popularmovies(page?: Nullable<number>): PopularMovies[] | Promise<PopularMovies[]>;
 
     abstract favourites(): Favourites[] | Promise<Favourites[]>;
+
+    abstract moviegenres(): Genre[] | Promise<Genre[]>;
+
+    abstract tvgenres(): Genre[] | Promise<Genre[]>;
 }
 
 export abstract class IMutation {
