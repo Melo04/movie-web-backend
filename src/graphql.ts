@@ -16,6 +16,7 @@ export class Movie {
     vote_average: number;
     overview: string;
     release_date: string;
+    genre_ids: number[];
     production_companies: Company[];
     genres: Genre[];
 }

@@ -6,6 +6,7 @@ type Movie {
   vote_average: Float!
   overview: String!
   release_date: String!
+  genre_ids: [Int!]!
   production_companies: [Company!]!
   genres: [Genre!]!
 }
