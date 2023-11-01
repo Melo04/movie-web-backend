@@ -14,4 +14,9 @@ export class TvseriesResolver {
   async series(@Args('id') id: string) {
     return this.tvseriesService.getTvseriesById(id);
   }
+
+  @Query()
+  async searchTvseries(@Args('keyword') keyword: string) {
+    return this.tvseriesService.search(keyword);
+  }
 }

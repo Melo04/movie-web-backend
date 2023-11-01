@@ -19,4 +19,11 @@ export class TvseriesService extends RESTDataSource {
     const response = await this.get(`tv/${id}?api_key=${process.env.API_KEY}`);
     return response;
   }
+
+  async search(keyword: string) {
+    const response = await this.get(
+      `search/tv?query=${keyword}&api_key=${process.env.API_KEY}`,
+    );
+    return response.results;
+  }
 }

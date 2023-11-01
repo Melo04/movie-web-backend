@@ -11,14 +11,14 @@
 export class Movie {
     id: string;
     title: string;
-    poster_path: string;
+    poster_path?: Nullable<string>;
     popularity: number;
     vote_average: number;
     overview: string;
     release_date: string;
     genre_ids: number[];
-    production_companies: Company[];
-    genres: Genre[];
+    production_companies?: Nullable<Company[]>;
+    genres?: Nullable<Genre[]>;
 }
 
 export class TvSeries {
@@ -29,9 +29,9 @@ export class TvSeries {
     vote_count: number;
     overview: string;
     first_air_date: string;
-    production_companies: Company[];
-    genres: Genre[];
-    seasons: Seasons[];
+    production_companies?: Nullable<Company[]>;
+    genres?: Nullable<Genre[]>;
+    seasons?: Nullable<Seasons[]>;
 }
 
 export class PopularMovies {
@@ -118,11 +118,15 @@ export class AddToFavourites {
 export abstract class IQuery {
     abstract movies(page?: Nullable<number>): Movie[] | Promise<Movie[]>;
 
+    abstract searchMovies(keyword: string): Movie[] | Promise<Movie[]>;
+
     abstract movie(id: string): Movie | Promise<Movie>;
 
     abstract tvseries(page?: Nullable<number>): TvSeries[] | Promise<TvSeries[]>;
 
     abstract series(id: string): TvSeries | Promise<TvSeries>;
+
+    abstract searchTvseries(keyword: string): TvSeries[] | Promise<TvSeries[]>;
 
     abstract reviews(id: string): Reviews[] | Promise<Reviews[]>;
 

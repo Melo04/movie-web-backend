@@ -21,4 +21,11 @@ export class MoviesService extends RESTDataSource {
     );
     return response;
   }
+
+  async search(keyword: string) {
+    const response = await this.get(
+      `search/movie?query=${keyword}&api_key=${process.env.API_KEY}`,
+    );
+    return response.results;
+  }
 }

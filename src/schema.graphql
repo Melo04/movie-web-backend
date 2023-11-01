@@ -1,14 +1,14 @@
 type Movie {
   id: ID!
   title: String!
-  poster_path: String!
+  poster_path: String
   popularity: Float!
   vote_average: Float!
   overview: String!
   release_date: String!
   genre_ids: [Int!]!
-  production_companies: [Company!]!
-  genres: [Genre!]!
+  production_companies: [Company!]
+  genres: [Genre!]
 }
 
 type TvSeries {
@@ -19,9 +19,9 @@ type TvSeries {
   vote_count: Int!
   overview: String!
   first_air_date: String!
-  production_companies: [Company!]!
-  genres: [Genre!]!
-  seasons: [Seasons!]!
+  production_companies: [Company!]
+  genres: [Genre!]
+  seasons: [Seasons!]
 }
 
 type PopularMovies {
@@ -107,9 +107,11 @@ type AddToFavourites {
 
 type Query {
   movies(page: Int): [Movie!]!
+  searchMovies(keyword: String!): [Movie!]!
   movie(id: ID!): Movie!
   tvseries(page: Int): [TvSeries!]!
   series(id: ID!): TvSeries!
+  searchTvseries(keyword: String!): [TvSeries!]!
   reviews(id: ID!): [Reviews!]!
   popularmovies(page: Int): [PopularMovies!]!
   favourites: [Favourites!]!

@@ -14,4 +14,9 @@ export class MoviesResolver {
   async movie(@Args('id') id: string) {
     return this.moviesService.getMovieById(id);
   }
+
+  @Query()
+  async searchMovies(@Args('keyword') keyword: string) {
+    return this.moviesService.search(keyword);
+  }
 }
