@@ -8,3 +8,10 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    environment:
+      NGINX_HOST: postgres
+      NGINX_PORT: 5432
