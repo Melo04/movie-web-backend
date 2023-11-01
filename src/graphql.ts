@@ -24,18 +24,20 @@ export class Movie {
 export class TvSeries {
     id: string;
     name: string;
-    poster_path: string;
+    poster_path?: Nullable<string>;
     popularity: number;
     vote_count: number;
     overview: string;
     first_air_date: string;
     production_companies?: Nullable<Company[]>;
+    genre_ids: number[];
     genres?: Nullable<Genre[]>;
     seasons?: Nullable<Seasons[]>;
 }
 
 export class PopularMovies {
     id: string;
+    genre_ids: number[];
     title: string;
     poster_path: string;
     popularity: number;

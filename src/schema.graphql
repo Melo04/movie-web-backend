@@ -14,18 +14,20 @@ type Movie {
 type TvSeries {
   id: ID!
   name: String!
-  poster_path: String!
+  poster_path: String
   popularity: Float!
   vote_count: Int!
   overview: String!
   first_air_date: String!
   production_companies: [Company!]
+  genre_ids: [Int!]!
   genres: [Genre!]
   seasons: [Seasons!]
 }
 
 type PopularMovies {
   id: ID!
+  genre_ids: [Int!]!
   title: String!
   poster_path: String!
   popularity: Float!
